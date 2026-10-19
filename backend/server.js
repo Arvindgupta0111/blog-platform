@@ -10,7 +10,12 @@ const commentRoutes = require('./routes/commentRoutes');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://blog-platform-frontend-m3z8.onrender.com'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json({ limit: '10kb' }));
